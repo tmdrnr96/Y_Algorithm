@@ -17,29 +17,24 @@ public class No_2908 {
 		
 		String rev="";
 		
-		String s1 = "";
-		String s2 = "";
+		String[] arr = new String[str.countTokens()];
 		
-		for(int i = 0; i < str.countTokens(); i++) {
-			rev = str.nextToken();//734
+		for(int i = 0; i < 2; i++) {
 			
-			for(int j = rev.length(); j > 0 ; j--) {
-				if(i == 0) {
-					s1+=rev.charAt(j);					
-				}else {
-					s2+=rev.charAt(j);
-				}
+			rev = str.nextToken();
+			arr[i] = "";
+			
+			for(int j = rev.length()-1; j >= 0 ; j--) {
+				
+				arr[i]+=String.valueOf(rev.charAt(j));
 			}
 		}
-		
-		System.out.println(s1+"/"+s2);
-		if(Integer.parseInt(s1) > Integer.parseInt(s2)) {
-			bw.write(s1);
+
+		if(Integer.parseInt(arr[0]) > Integer.parseInt(arr[1])) {
+			bw.write(arr[0]);
 		}else {
-			bw.write(s2);
+			bw.write(arr[1]);
 		}
-		
-		
 		
 		br.close();
 		bw.close();
